@@ -21,7 +21,7 @@ class Implante:
     def set_fechaRevision(self, frev):
         self.__fechaRevision = frev
     def set_mantenimiento(self, man):
-       self.__mantenimiento = man
+        self.__mantenimiento = man
 
 class ImplanteRodilla:
     def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
@@ -106,7 +106,7 @@ class StentCoronario:
         self.set_fechaRevision(fechaRevision)
         self.set_mantenimiento(mantenimiento)
         self.__material = ""
-        self.longitud = float
+        self.__longitud = float
         self.__diametro = float
 
     def get_material(self):
@@ -123,4 +123,27 @@ class StentCoronario:
     def set_diametro(self, d):
         self.__diametro = d
 
-        
+class Marcapasos:
+    def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
+        super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
+        self.set_medResponsable(medResponsable)
+        self.set_estado(estado)
+        self.set_fechaRevision(fechaRevision)
+        self.set_mantenimiento(mantenimiento)
+        self.__nElectrodos = int
+        self.__formConexion = ""
+        self.__fEstimulacion = ""
+
+    def get_nElectrodos(self):
+        return self.__nElectrodos
+    def get_formConexion(self):
+        return self.__formConexion
+    def get_fEstimulacion(self):
+        return self.__fEstimulacion
+    
+    def set_nElectrodos(self, ne):
+        self.__nElectrodos = ne
+    def set_formConexion(self, fc):
+        self.__formConexion = fc
+    def set_fEstimulacion(self, fe):
+        self.__fEstimulacion = fe
