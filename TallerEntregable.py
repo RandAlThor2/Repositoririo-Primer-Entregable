@@ -541,40 +541,97 @@ def main():
                         servicio_implantes.agregarImp(id_, tipo, ob)    
                     else:
                         break
-        elif menu==2:
-            id_=int(input("Ingrese la ID del implante"))
-            tipo=input('''Ingrese tipo de implante
-                    \n1-Implante de rodilla 
-                    \n2-Implante de cadera
-                    \n3-Implante dental 
-                    \n4-Stent coronario 
-                    \n5-Marcapasos
-                    \n6-Salir 
-                        ''')
-
-            if tipo==1:
+        elif menu == 2:
+            while True:
+                try:
+                    id_= int(input("Ingrese la ID del implante"))
+                    break
+                except ValueError:
+                    print("Ingrese un valor adecuado")
+                    continue
+            while True:
+                try:
+                    tipo = int(input('''Ingrese tipo de implante
+                        \n1-Implante de rodilla 
+                        \n2-Implante de cadera
+                        \n3-Implante dental 
+                        \n4-Stent coronario 
+                        \n5-Marcapasos
+                        \n6-Salir 
+                        '''))
+                    break
+                except ValueError:
+                    print("Ingrese un valor adecuado")
+                    continue
+            if tipo == 1:
                 tipo="ImplanteRodilla"
                 servicio_implantes.eliminarImp(id_,tipo)
-
             elif tipo==2:
                 tipo="ImplanteCadera"
                 servicio_implantes.eliminarImp(id_,tipo)
-
             elif tipo==3:
                 tipo="ImplanteDental"
                 servicio_implantes.eliminarImp(id_,tipo)
-            
             elif tipo==4:
                 tipo="StentCoronario"
                 servicio_implantes.eliminarImp(id_,tipo)
-            
             elif tipo==5:
                 tipo="Marcapasos"
                 servicio_implantes.eliminarImp(id_,tipo)
-
             else:
                 break
-        
         elif menu==3:
-            id
+            pass
+        elif menu == 4:
+            while True:
+                try:
+                    id_pac = int(input('Ingrese la ID del paciente: '))
+                    break
+                except ValueError:
+                    print("Ingrese un valor numérico")
+                    continue
+            while True:
+                try:
+                    id_im = int(input('Ingrese la ID del implante disponible en el inventario: '))
+                    break
+                except ValueError:
+                    print("Ingrese un valor numérico")
+                    continue
+            while True:
+                while True:
+                    try:
+                        tipo = int(input('''Ingrese el tipo de implante: 
+                                \n1-Implante de rodilla
+                                \n2-Implante de cadera
+                                \n3-Implante dental
+                                \n4-Stent Coronario
+                                \n5-Marcapasos
+                                >> '''))
+                        break
+                    except ValueError:
+                        print("Ingrese un valor del menú")
+                        continue
+                if tipo == 1:
+                    pac = servicio_implantes.get_implantes()[id_pac]
+                    ob = servicio_implantes.get_pacientes()[tipo][id_im]
+                    pac.get_dicpacimplantes()[id_im] = ob
+                elif tipo == 2:
+                    pac = servicio_implantes.get_implantes()[id_pac]
+                    ob = servicio_implantes.get_pacientes()[tipo][id_im]
+                    pac.get_dicpacimplantes()[id_im] = ob
+                elif tipo == 3:
+                    pac = servicio_implantes.get_implantes()[id_pac]
+                    ob = servicio_implantes.get_pacientes()[tipo][id_im]
+                    pac.get_dicpacimplantes()[id_im] = ob
+                elif tipo == 4:
+                    pac = servicio_implantes.get_implantes()[id_pac]
+                    ob = servicio_implantes.get_pacientes()[tipo][id_im]
+                    pac.get_dicpacimplantes()[id_im] = ob
+                elif tipo == 5:
+                    pac = servicio_implantes.get_implantes()[id_pac]
+                    ob = servicio_implantes.get_pacientes()[tipo][id_im]
+                    pac.get_dicpacimplantes()[id_im] = ob
+                else:
+                    print("Seleccione una opción del menú")
+
 main()
