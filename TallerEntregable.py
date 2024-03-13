@@ -379,13 +379,20 @@ class Sistema:
 def main():
     servicio_implantes = Sistema()
     while True:
-        menu = int(input('''Bienvenido al sistema, ingrese una opción:\n 1- Agregar Implante \n2-Eliminar implante \n3-Editar información de implante \n4-Visualizar inventari0''))
+        menu = int(input('''
+                         "Bienvenido al sistema, ingrese una opción:
+                         \n1- Agregar nuevo implante 
+                         \n2-Eliminar implante
+                         \n3-Crear paciente 
+                         \n4-Asignar implante a paciente
+                         \n5-Editar información de implante 
+                         \n6-Visualizar inventario
+                         \n7-Salir del sistema"
+                         '''))
+        if menu==1: 
+            while True:
+                tipo=(int(input("Ingrese ")))
+                           
+            
 
 main()
-
-
-                         
-
-
-
-                         fgh
