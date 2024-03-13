@@ -410,7 +410,13 @@ def main():
                     except ValueError:
                         print("Ingrese un valor del menú")
                         continue
-                id_ = int(input("Ingrese la ID:"))
+                while True:
+                    try:
+                        id_ = int(input("Ingrese la ID:"))
+                        break
+                    except ValueError:
+                        print("Ingrese un dato numérico")
+                        continue
                 ver = servicio_implantes.verificarExisteImp(tipo, id_)
                 if ver:
                     print(f"El implante de {tipo} con ID {id_} ya se encuentra en el sistema")
