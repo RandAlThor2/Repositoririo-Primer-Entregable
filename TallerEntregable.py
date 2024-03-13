@@ -177,19 +177,19 @@ class Sistema:
         else:
             return False        
     def verificarExisteImp(self, tipoimp, id_):
-        if tipoimp == "Implante de Rodilla":
+        if tipoimp == 1:
             if id_ in self.__implantes["ImplanteRodilla"]:
                 return True
-        elif tipoimp == "Implante de Cadera":
+        elif tipoimp == 2:
             if id_ in self.__implantes["ImplanteCadera"]:
                 return True
-        elif tipoimp == "Implante Dental":
+        elif tipoimp == 3:
             if id_ in self.__implantes["ImplanteDental"]:
                 return True
-        elif tipoimp == "Stent Coronario":
+        elif tipoimp == 4:
             if id_ in self.__implantes["StentCoronario"]:
                 return True
-        elif tipoimp == "Marcapasos":
+        elif tipoimp == 5:
             if id_ in self.__implantes["Marcapasos"]:
                 return True
         else:
@@ -208,19 +208,19 @@ class Sistema:
             return print(f"El implante tipo {tipoimp} con {id_} ya se halla en la base de datos")
         else:
             if tipoimp == 1:
-                self.__implantes["ImplanteRodilla"][id_] = ob
+                self.get_implantes["ImplanteRodilla"][id_] = ob
                 return print("Implante de Rodilla ingresado")
             elif tipoimp == 2:
-                self.__implantes["ImplanteCadera"][id_] = ob
+                self.get_implantes["ImplanteCadera"][id_] = ob
                 return print("Implante de Cadera ingresado")
             elif tipoimp == 3:
-                self.__implantes["ImplanteDental"][id_] = ob
+                self.get_implantes["ImplanteDental"][id_] = ob
                 return print("Implante Dental ingresado")
             elif tipoimp == 4:
-                self.__implantes["StentCoronario"][id_] = ob
+                self.get_implantes["StentCoronario"][id_] = ob
                 return print("StentCoronario ingresado")
             elif tipoimp == 5:
-                self.__implantes["Marcapasos"][id_] = ob
+                self.get_implantes["Marcapasos"][id_] = ob
                 return print("Marcapasos ingresado")
             
     def editarInfoImplanRo(self, id_, mat, tf, tam, med, est, frev, man, tipoimp=1):
@@ -228,65 +228,131 @@ class Sistema:
         if a == False:
             return print(f"El implante tipo {tipoimp} con {id_} no se halla en la base de datos")
         else:
-            self.__implantes[tipoimp][id_].set_material(mat)
-            self.__implantes[tipoimp][id_].set_tipoFijacion(tf)
-            self.__implantes[tipoimp][id_].set_tamaño(tam)
-            self.__implantes[tipoimp][id_].set_medResponsable(med)
-            self.__implantes[tipoimp][id_].set_estado(est)
-            self.__implantes[tipoimp][id_].set_fechaRevision(frev)
-            self.__implantes[tipoimp][id_].set_mantenimiento(man)
+            self.get_implantes[tipoimp][id_].set_material(mat)
+            self.get_implantes[tipoimp][id_].set_tipoFijacion(tf)
+            self.get_implantes[tipoimp][id_].set_tamaño(tam)
+            self.get_implantes[tipoimp][id_].set_medResponsable(med)
+            self.get_implantes[tipoimp][id_].set_estado(est)
+            self.get_implantes[tipoimp][id_].set_fechaRevision(frev)
+            self.get_implantes[tipoimp][id_].set_mantenimiento(man)
             return print("Cambios modificados con éxito")
     def editarInfoImplanCa(self, id_, mat, tf, tam, med, est, frev, man, tipoimp=2):
         a = self.verificarExisteImp(tipoimp, id_)
         if a == False:
             return print(f"El implante tipo {tipoimp} con {id_} no se halla en la base de datos")
         else:
-            self.__implantes[tipoimp][id_].set_material(mat)
-            self.__implantes[tipoimp][id_].set_tipoFijacion(tf)
-            self.__implantes[tipoimp][id_].set_tamaño(tam)
-            self.__implantes[tipoimp][id_].set_medResponsable(med)
-            self.__implantes[tipoimp][id_].set_estado(est)
-            self.__implantes[tipoimp][id_].set_fechaRevision(frev)
-            self.__implantes[tipoimp][id_].set_mantenimiento(man)
+            self.get_implantes[tipoimp][id_].set_material(mat)
+            self.get_implantes[tipoimp][id_].set_tipoFijacion(tf)
+            self.get_implantes[tipoimp][id_].set_tamaño(tam)
+            self.get_implantes[tipoimp][id_].set_medResponsable(med)
+            self.get_implantes[tipoimp][id_].set_estado(est)
+            self.get_implantes[tipoimp][id_].set_fechaRevision(frev)
+            self.get_implantes[tipoimp][id_].set_mantenimiento(man)
             return print("Cambios modificados con éxito")
     def editarInfoImplanDe(self, id_, mat, f, sf, med, est, frev, man, tipoimp=3):
         a = self.verificarExisteImp(tipoimp, id_)
         if a == False:
             return print(f"El implante tipo {tipoimp} con {id_} no se halla en la base de datos")
         else:
-            self.__implantes[tipoimp][id_].set_material(mat)
-            self.__implantes[tipoimp][id_].set_forma(f)
-            self.__implantes[tipoimp][id_].set_sistFijacion(sf)
-            self.__implantes[tipoimp][id_].set_medResponsable(med)
-            self.__implantes[tipoimp][id_].set_estado(est)
-            self.__implantes[tipoimp][id_].set_fechaRevision(frev)
-            self.__implantes[tipoimp][id_].set_mantenimiento(man)
+            self.get_implantes[tipoimp][id_].set_material(mat)
+            self.get_implantes[tipoimp][id_].set_forma(f)
+            self.get_implantes[tipoimp][id_].set_sistFijacion(sf)
+            self.get_implantes[tipoimp][id_].set_medResponsable(med)
+            self.get_implantes[tipoimp][id_].set_estado(est)
+            self.get_implantes[tipoimp][id_].set_fechaRevision(frev)
+            self.get_implantes[tipoimp][id_].set_mantenimiento(man)
             return print("Cambios modificados con éxito")
     def editarInfoStent(self, id_, mat, l, d, med, est, frev, man, tipoimp=4):
         a = self.verificarExisteImp(tipoimp, id_)
         if a == False:
             return print(f"El implante tipo {tipoimp} con {id_} no se halla en la base de datos")
         else:
-            self.__implantes[tipoimp][id_].set_material(mat)
-            self.__implantes[tipoimp][id_].set_longitud(l)
-            self.__implantes[tipoimp][id_].set_diametro(d)
-            self.__implantes[tipoimp][id_].set_medResponsable(med)
-            self.__implantes[tipoimp][id_].set_estado(est)
-            self.__implantes[tipoimp][id_].set_fechaRevision(frev)
-            self.__implantes[tipoimp][id_].set_mantenimiento(man)
+            self.get_implantes[tipoimp][id_].set_material(mat)
+            self.get_implantes[tipoimp][id_].set_longitud(l)
+            self.get_implantes[tipoimp][id_].set_diametro(d)
+            self.get_implantes[tipoimp][id_].set_medResponsable(med)
+            self.get_implantes[tipoimp][id_].set_estado(est)
+            self.get_implantes[tipoimp][id_].set_fechaRevision(frev)
+            self.get_implantes[tipoimp][id_].set_mantenimiento(man)
             return print("Cambios modificados con éxito")
     def editarInfoMarcapasos(self, id_, ne, fc, fe, med, est, frev, man, tipoimp=5):   
         a = self.verificarExisteImp(tipoimp, id_)
         if a == False:
             return print(f"El implante tipo {tipoimp} con {id_} no se halla en la base de datos")
         else:
-            self.__implantes[tipoimp][id_].set_nElectrodos(ne)
-            self.__implantes[tipoimp][id_].set_formConexion(fc)
-            self.__implantes[tipoimp][id_].set_fEstimulacion(fe)
-            self.__implantes[tipoimp][id_].set_medResponsable(med)
-            self.__implantes[tipoimp][id_].set_estado(est)
-            self.__implantes[tipoimp][id_].set_fechaRevision(frev)
-            self.__implantes[tipoimp][id_].set_mantenimiento(man)
+            self.get_implantes[tipoimp][id_].set_nElectrodos(ne)
+            self.get_implantes[tipoimp][id_].set_formConexion(fc)
+            self.get_implantes[tipoimp][id_].set_fEstimulacion(fe)
+            self.get_implantes[tipoimp][id_].set_medResponsable(med)
+            self.get_implantes[tipoimp][id_].set_estado(est)
+            self.get_implantes[tipoimp][id_].set_fechaRevision(frev)
+            self.get_implantes[tipoimp][id_].set_mantenimiento(man)
             return print("Cambios modificados con éxito")     
 
-    def agregarImaPa():
+    def eliminarImp(self, id_, tipoimp):
+        a = self.verificarExisteImp(tipoimp, id_)
+        if a == False:
+            return print(f"El implante tipo {tipoimp} con {id_} no se halla en la base de datos")
+        else: 
+            del self.__implantes[tipoimp][id_]
+            return print("Artículo eliminado con éxito")
+
+    def verInventarioTotal(self):
+        print("\nInformación de Implantes:")
+        print("\nImplantes de Rodilla:")
+        dic_rod = self.get_implantes()["ImplanteRodilla"]
+        for implante_id, implante_info in dic_rod.items():
+            print(f"Implante ID: {implante_id}")
+            print(f"Tipo fijación: {implante_info.get_tipoFijacion()}")
+            print(f"Tamaño: {implante_info.get_tamaño()}")
+            print(f"Médico responsable: {implante_info.get_medResponsable()}")
+            print(f"Estado: {implante_info.get_estado()}")
+            print(f"Fecha revisión: {implante_info.get_fechaRevision()}")
+            print(f"Mantenimiento: {implante_info.get_mantenimiento()}")
+        
+        print("\nImplantes de Rodilla:")
+        dic_cad = self.get_implantes()["ImplanteCadera"]
+        for implante_id, implante_info in dic_cad.items():
+            print(f"Implante ID: {implante_id}")
+            print(f"Tipo fijación: {implante_info.get_tipoFijacion()}")
+            print(f"Tamaño: {implante_info.get_tamaño()}")
+            print(f"Médico responsable: {implante_info.get_medResponsable()}")
+            print(f"Estado: {implante_info.get_estado()}")
+            print(f"Fecha revisión: {implante_info.get_fechaRevision()}")
+            print(f"Mantenimiento: {implante_info.get_mantenimiento()}")
+        
+        print("\nImplantes de Dentales:")
+        dic_den = self.get_implantes()["ImplanteDental"]
+        for implante_id, implante_info in dic_den.items():
+            print(f"Implante ID: {implante_id}")
+            print(f"Material: {implante_info.get_material()}")
+            print(f"Forma: {implante_info.get_forma()}")
+            print(f"Sistema de fijación: {implante_info.get_sistFijacion()}")
+            print(f"Médico responsable: {implante_info.get_medResponsable()}")
+            print(f"Estado: {implante_info.get_estado()}")
+            print(f"Fecha revisión: {implante_info.get_fechaRevision()}")
+            print(f"Mantenimiento: {implante_info.get_mantenimiento()}")
+        
+        print("\nStent Coronario:")
+        dic_st = self.get_implantes()["StentCoronario"]
+        for implante_id, implante_info in dic_st.items():
+            print(f"Implante ID: {implante_id}")
+            print(f"Material: {implante_info.get_material()}")
+            print(f"Longitud: {implante_info.get_longitud()}")
+            print(f"Diámetro: {implante_info.get_diametro()}")
+            print(f"Médico responsable: {implante_info.get_medResponsable()}")
+            print(f"Estado: {implante_info.get_estado()}")
+            print(f"Fecha revisión: {implante_info.get_fechaRevision()}")
+            print(f"Mantenimiento: {implante_info.get_mantenimiento()}")
+ 
+        print("\nStent Coronario:")
+        dic_st = self.get_implantes()["StentCoronario"]
+        for implante_id, implante_info in dic_st.items():
+            print(f"Implante ID: {implante_id}")
+            print(f"Número de electrodos: {implante_info.get_nElectrodos()}")
+            print(f"Forma de conexión: {implante_info.formConexion()}")
+            print(f"Forma de estimulación: {implante_info.get_fEstimulacion()}")
+            print(f"Médico responsable: {implante_info.get_medResponsable()}")
+            print(f"Estado: {implante_info.get_estado()}")
+            print(f"Fecha revisión: {implante_info.get_fechaRevision()}")
+            print(f"Mantenimiento: {implante_info.get_mantenimiento()}")
