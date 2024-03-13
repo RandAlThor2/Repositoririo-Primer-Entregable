@@ -570,5 +570,15 @@ def main():
                 break
         
         elif menu==3:
-            id
+            while True:
+                pac=Paciente()    
+                id=int(input("Ingrese la cedula del paciente: "))
+                if servicio_implantes.verificarExistePac(id):
+                    print("El paciente ya se encuentra registrado")
+                    break
+                else:
+                    pac.set_Nombre=input("Ingrese el nombre del paciente: ")
+                    pac.set_Cedula=id
+                    pac.set_Genero=input("Ingrese el genero del paciente: ")
+                    servicio_implantes.agregarPac(id,pac)
 main()
