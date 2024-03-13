@@ -329,7 +329,7 @@ class Sistema:
             print(f"Fecha revisión: {implante_info.get_fechaRevision()}")
             print(f"Mantenimiento: {implante_info.get_mantenimiento()}")
         
-        print("\nImplantes de Rodilla:")
+        print("\nImplantes de Cadera:")
         dic_cad = self.get_implantes()["ImplanteCadera"]
         for implante_id, implante_info in dic_cad.items():
             print(f"Implante ID: {implante_id}")
@@ -379,20 +379,161 @@ class Sistema:
 def main():
     servicio_implantes = Sistema()
     while True:
-        menu = int(input('''
-                         "Bienvenido al sistema, ingrese una opción:
-                         \n1- Agregar nuevo implante 
+        while True:
+            try:
+                menu = int(input('''Bienvenido al sistema, ingrese una opción:
+                         \n1-Agregar nuevo implante 
                          \n2-Eliminar implante
                          \n3-Crear paciente 
                          \n4-Asignar implante a paciente
                          \n5-Editar información de implante 
                          \n6-Visualizar inventario
-                         \n7-Salir del sistema"
-                         '''))
-        if menu==1: 
+                         \n7-Salir del sistema
+                         >> '''))
+                break
+            except ValueError:
+                print("Ingrese un valor del menú")
+                continue
+        if menu == 1: 
             while True:
-                tipo=(int(input("Ingrese ")))
-                           
-            
-
+                while True:
+                    try:
+                        tipo = int(input('''Ingrese el tipo de implante: 
+                                \n1-Implante de rodilla
+                                \n2-Implante de cadera
+                                \n3-Implante dental
+                                \n4-Stent Coronario
+                                \n5-Marcapasos
+                                \nOtro-Volver
+                                >> '''))
+                        break
+                    except ValueError:
+                        print("Ingrese un valor del menú")
+                        continue
+                id_ = int(input("Ingrese la ID:"))
+                ver = servicio_implantes.verificarExisteImp(tipo, id_)
+                if ver:
+                    print(f"El implante de {tipo} con ID {id_} ya se encuentra en el sistema")
+                    break
+                else:
+                    if tipo == 1:
+                        ob = ImplanteRodilla()
+                        mat = input("Ingrese el tipo de material: ")
+                        tf = input("Ingrese el tipo de fijación: ")
+                        while True:
+                            try:
+                                tam = float(input("Ingrese el tamaño: "))
+                                break
+                            except ValueError:
+                                print("Ingrese un valor adecuado")
+                                continue
+                        med = input("Médico responsable: ")
+                        frev = input("Fecha de revisión: ")
+                        man = input("Mantenimiento: ")
+                        ob.set_material(mat)
+                        ob.set_tipoFijacion(tf)
+                        ob.set_tamaño(tam)
+                        ob.set_medResponsable(med)
+                        ob.set_fechaRevision(frev)
+                        ob.set_mantenimiento(man)
+                        servicio_implantes.agregarImp(id_, tipo, ob)
+                    elif tipo == 2:
+                        ob = ImplanteCadera()
+                        mat = input("Ingrese el tipo de material: ")
+                        tf = input("Ingrese el tipo de fijación: ")
+                        while True:
+                            try:
+                                tam = float(input("Ingrese el tamaño: "))
+                                break
+                            except ValueError:
+                                print("Ingrese un valor adecuado")
+                                continue
+                        med = input("Médico responsable: ")
+                        frev = input("Fecha de revisión: ")
+                        man = input("Fecha de revisión: ")
+                        ob.set_material(mat)
+                        ob.set_tipoFijacion(tf)
+                        ob.set_tamaño(tam)
+                        ob.set_medResponsable(med)
+                        ob.set_fechaRevision(frev)
+                        ob.set_mantenimiento(man)
+                        servicio_implantes.agregarImp(id_, tipo, ob)
+                    elif tipo == 3:
+                        ob = ImplanteDental()
+                        mat = input("Ingrese el tipo de material: ")
+                        while True:
+                            try:
+                                tam = float(input("Ingrese el tamaño: "))
+                                break
+                            except ValueError:
+                                print("Ingrese un valor adecuado")
+                                continue
+                        sf = input("Ingrese el sistema de fijación: ")
+                        med = input("Médico responsable: ")
+                        frev = input("Fecha de revisión: ")
+                        man = input("Fecha de revisión: ")
+                        ob.set_material(mat)
+                        ob.set_tamaño(tam)
+                        ob.set_sistFijacion(sf)
+                        ob.set_medResponsable(med)
+                        ob.set_fechaRevision(frev)
+                        ob.set_mantenimiento(man)
+                        servicio_implantes.agregarImp(id_, tipo, ob)
+                    elif tipo == 4:
+                        ob = StentCoronario()
+                        mat = input("Ingrese el tipo de material")
+                        while True:
+                            try:
+                                l = float(input("Ingrese la longitud: "))
+                                break
+                            except ValueError:
+                                print("Ingrese un valor adecuado")
+                                continue
+                        while True:
+                            try:
+                                d = float(input("Ingrese el diámetro: "))
+                                break
+                            except ValueError:
+                                print("Ingrese un valor adecuado")
+                                continue
+                        med = input("Médico responsable: ")
+                        frev = input("Fecha de revisión: ")
+                        man = input("Fecha de revisión: ")
+                        ob.set_material(mat)
+                        ob.set_longitud(l)
+                        ob.set_diametro(d)
+                        ob.set_medResponsable(med)
+                        ob.set_fechaRevision(frev)
+                        ob.set_mantenimiento(man)
+                        servicio_implantes.agregarImp(id_, tipo, ob)
+                    elif tipo == 5:
+                        ob = StentCoronario()
+                        mat = input("Ingrese el tipo de material")
+                        while True:
+                            try:
+                                l = float(input("Ingrese la longitud: "))
+                                break
+                            except ValueError:
+                                print("Ingrese un valor adecuado")
+                                continue
+                        while True:
+                            try:
+                                d = float(input("Ingrese el diámetro: "))
+                                break
+                            except ValueError:
+                                print("Ingrese un valor adecuado")
+                                continue
+                        med = input("Médico responsable: ")
+                        frev = input("Fecha de revisión: ")
+                        man = input("Fecha de revisión: ")
+                        ob.set_material(mat)
+                        ob.set_longitud(l)
+                        ob.set_diametro(d)
+                        ob.set_medResponsable(med)
+                        ob.set_fechaRevision(frev)
+                        ob.set_mantenimiento(man)
+                        servicio_implantes.agregarImp(id_, tipo, ob)    
+                    else:
+                        break
+        elif menu == 2:
 main()
