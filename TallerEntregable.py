@@ -147,3 +147,31 @@ class Marcapasos:
         self.__formConexion = fc
     def set_fEstimulacion(self, fe):
         self.__fEstimulacion = fe
+
+class Paciente:
+    def __init__(self):
+        self.__nombre = ""
+        self.__cedula = int
+        self.__genero = ""
+        self.__listaimplantes = []
+        
+    def get_Nombre(self):
+        return self.__nombre
+    def get_Cedula(self):
+        return self.__cedula
+    def get_Genero(self):
+        return self.__genero
+    def get_listaImplantesPac(self):
+        return self.__listaimplantes
+    
+    def set_Nombre(self,n):
+        self.__nombre = n   
+    def set_Cedula(self,c):
+        self.__cedula = c
+    def set_Genero(self,g):
+        self.__genero = g
+    def set_listaImplantesPac(self, li):
+        self.__listaimplantes = li
+
+class Sistema:
+     
