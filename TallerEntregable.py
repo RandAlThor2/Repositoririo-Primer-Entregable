@@ -42,3 +42,24 @@ class ImplanteRodilla:
         self.__tipoFijacion = tf
     def set_tamaño(self, tam):
         self.__tamaño = tam
+
+
+class ImplanteCadera:
+    def __init__(self):
+        self.__material = ""
+        self.__tipoFijacion = ""
+        self.__tamaño = float
+
+    def get_material(self):
+        return self.__material
+    def get_tipoFijacion(self):
+        return self.__tipoFijacion
+    def get_tamaño(self):
+        return self.__tamaño
+    
+    def set_material(self, mat):
+        self.__material = mat
+    def set_tipoFijacion(self, tf):
+        self.__tipoFijacion = tf
+    def set_tamaño(self, tam):
+        self.__tamaño = tam
