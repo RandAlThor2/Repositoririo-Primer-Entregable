@@ -226,26 +226,22 @@ class Sistema:
         else: 
             return True    
     def agregarImp(self, id_, tipoimp, ob):
-        a = self.verificarExisteImp(tipoimp, id_)
-        if a:
-            return print(f"El implante tipo {tipoimp} con {id_} ya se halla en la base de datos")
-        else:
-            if tipoimp == 1:
-                self.get_implantes["ImplanteRodilla"][id_] = ob
-                return print("Implante de Rodilla ingresado")
-            elif tipoimp == 2:
-                self.get_implantes["ImplanteCadera"][id_] = ob
-                return print("Implante de Cadera ingresado")
-            elif tipoimp == 3:
-                self.get_implantes["ImplanteDental"][id_] = ob
-                return print("Implante Dental ingresado")
-            elif tipoimp == 4:
-                self.get_implantes["StentCoronario"][id_] = ob
-                return print("StentCoronario ingresado")
-            elif tipoimp == 5:
-                self.get_implantes["Marcapasos"][id_] = ob
-                return print("Marcapasos ingresado")
-            
+        if tipoimp == 1:
+            self.get_implantes["ImplanteRodilla"][id_] = ob
+            return print("Implante de Rodilla ingresado")
+        elif tipoimp == 2:
+            self.get_implantes["ImplanteCadera"][id_] = ob
+            return print("Implante de Cadera ingresado")
+        elif tipoimp == 3:
+            self.get_implantes["ImplanteDental"][id_] = ob
+            return print("Implante Dental ingresado")
+        elif tipoimp == 4:
+            self.get_implantes["StentCoronario"][id_] = ob
+            return print("StentCoronario ingresado")
+        elif tipoimp == 5:
+            self.get_implantes["Marcapasos"][id_] = ob
+            return print("Marcapasos ingresado")
+        
     def editarInfoImplanRo(self, id_, mat, tf, tam, med, est, frev, man, tipoimp=1):
         a = self.verificarExisteImp(tipoimp, id_)
         if a == False:
@@ -383,7 +379,13 @@ class Sistema:
 def main():
     servicio_implantes = Sistema()
     while True:
-        menu = int(input("Bienvenido al sistema, ingrese una opción:\n 1- Agregar Implante \n2-Eliminar implante \n3-Editar información de implante \n4-Visualizar inventario"))
+        menu = int(input('''Bienvenido al sistema, ingrese una opción:\n 1- Agregar Implante \n2-Eliminar implante \n3-Editar información de implante \n4-Visualizar inventari0''))
 
 main()
 
+
+                         
+
+
+
+                         fgh
