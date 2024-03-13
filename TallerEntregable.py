@@ -730,8 +730,8 @@ class Sistema:
             print(f"Fecha revisión: {implante_info.get_fechaRevision()}")
             print(f"Mantenimiento: {implante_info.get_mantenimiento()}")
  
-        print("\nStent Coronario:")
-        dic_st = self.get_implantes()["StentCoronario"]
+        print("\nMarcapasos:")
+        dic_st = self.get_implantes()["Marcapasos"]
         for implante_id, implante_info in dic_st.items():
             print(f"Implante ID: {implante_id}")
             print(f"Número de electrodos: {implante_info.get_nElectrodos()}")
