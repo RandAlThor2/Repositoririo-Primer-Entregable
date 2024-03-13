@@ -219,8 +219,8 @@ class Sistema:
             
 #setters clase Sistema
     def agregarPac(self, id_, ob):
-        a = self.verificarExiste()
-        if a:
+        a = self.verificarExistePac()
+        if not a:
             self.get_pacientes()[id_] = ob
             return False
         else: 
@@ -541,5 +541,40 @@ def main():
                         servicio_implantes.agregarImp(id_, tipo, ob)    
                     else:
                         break
-        elif menu == 2:
+        elif menu==2:
+            id_=int(input("Ingrese la ID del implante"))
+            tipo=input('''Ingrese tipo de implante
+                    \n1-Implante de rodilla 
+                    \n2-Implante de cadera
+                    \n3-Implante dental 
+                    \n4-Stent coronario 
+                    \n5-Marcapasos
+                    \n6-Salir 
+                        ''')
+
+            if tipo==1:
+                tipo="ImplanteRodilla"
+                servicio_implantes.eliminarImp(id_,tipo)
+
+            elif tipo==2:
+                tipo="ImplanteCadera"
+                servicio_implantes.eliminarImp(id_,tipo)
+
+            elif tipo==3:
+                tipo="ImplanteDental"
+                servicio_implantes.eliminarImp(id_,tipo)
+            
+            elif tipo==4:
+                tipo="StentCoronario"
+                servicio_implantes.eliminarImp(id_,tipo)
+            
+            elif tipo==5:
+                tipo="Marcapasos"
+                servicio_implantes.eliminarImp(id_,tipo)
+
+            else:
+                break
+        
+        elif menu==3:
+            id
 main()
