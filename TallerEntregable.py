@@ -1,3 +1,4 @@
+#Creación clase implante
 class Implante:
     def __init__(self):
         self.__medResponsable = ""
@@ -5,6 +6,7 @@ class Implante:
         self.__fechaRevision = ""
         self.__mantenimiento = ""
 
+#Getters de la clase implante
     def get_medResponsable(self):
         return self.__medResponsable
     def get_estado(self):
@@ -14,6 +16,7 @@ class Implante:
     def gset_mantenimiento(self):
         return self.__mantenimiento
     
+#Setters de la clase implante
     def set_medResponsable(self, med):
         self.__medResponsable = med
     def set_estado(self, est):
@@ -23,20 +26,24 @@ class Implante:
     def set_mantenimiento(self, man):
         self.__mantenimiento = man
 
+
+#Creación clase ImplanteRodilla
 class ImplanteRodilla:
     def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
         super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
         self.__material = ""
         self.__tipoFijacion = ""
-        self.__tamaño = float
+        self.__tamaño = float(0)
 
+#getters clase ImplanteRodilla
     def get_material(self):
         return self.__material
     def get_tipoFijacion(self):
         return self.__tipoFijacion
     def get_tamaño(self):
         return self.__tamaño
-    
+
+#setters clase ImplanteRodilla
     def set_material(self, mat):
         self.__material = mat
     def set_tipoFijacion(self, tf):
@@ -44,6 +51,7 @@ class ImplanteRodilla:
     def set_tamaño(self, tam):
         self.__tamaño = tam
 
+#Creación clase ImplanteCadera
 class ImplanteCadera:
     def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
         super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
@@ -51,13 +59,15 @@ class ImplanteCadera:
         self.__tipoFijacion = ""
         self.__tamaño = float
 
+#getters clase ImplanteCadera
     def get_material(self):
         return self.__material
     def get_tipoFijacion(self):
         return self.__tipoFijacion
     def get_tamaño(self):
         return self.__tamaño
-    
+
+#setters clase ImplanteCadera
     def set_material(self, mat):
         self.__material = mat
     def set_tipoFijacion(self, tf):
@@ -65,6 +75,7 @@ class ImplanteCadera:
     def set_tamaño(self, tam):
         self.__tamaño = tam
 
+#creación clase ImplanteDental
 class ImplanteDental:
     def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
         super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
@@ -72,13 +83,15 @@ class ImplanteDental:
         self.__forma = ""
         self.__sistFijacion = ""
 
+#getters clase ImplanteDental
     def get_material(self):
         return self.__material
     def get_forma(self):
         return self.__forma
     def get_sistFijacion(self):
         return self.__sistFijacion
-    
+
+#setters clase ImplanteDental
     def set_material(self, mat):
         self.__material = mat
     def set_forma(self, f):
@@ -86,6 +99,7 @@ class ImplanteDental:
     def set_sistFijacion(self, sf):
         self.__sistFijacion = sf
 
+#Creación clase StentCoronario
 class StentCoronario:
     def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
         super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
@@ -93,6 +107,7 @@ class StentCoronario:
         self.__longitud = float
         self.__diametro = float
 
+#getters clase StentCoronario
     def get_material(self):
         return self.__material
     def get_longitud(self):
@@ -100,6 +115,7 @@ class StentCoronario:
     def get_diametro(self):
         return self.__diametro
     
+#setters clase StentCoronario
     def set_material(self, mat):
         self.__material = mat
     def set_longitud(self, l):
@@ -107,6 +123,7 @@ class StentCoronario:
     def set_diametro(self, d):
         self.__diametro = d
 
+#creación clase Marcapasos
 class Marcapasos:
     def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
         super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
@@ -114,13 +131,15 @@ class Marcapasos:
         self.__formConexion = ""
         self.__fEstimulacion = ""
 
+#getters clase Marcapasos
     def get_nElectrodos(self):
         return self.__nElectrodos
     def get_formConexion(self):
         return self.__formConexion
     def get_fEstimulacion(self):
         return self.__fEstimulacion
-    
+
+#setters clase Marcapasos
     def set_nElectrodos(self, ne):
         self.__nElectrodos = ne
     def set_formConexion(self, fc):
@@ -128,13 +147,15 @@ class Marcapasos:
     def set_fEstimulacion(self, fe):
         self.__fEstimulacion = fe
 
+#creación clase Paciente
 class Paciente:
     def __init__(self):
         self.__nombre = ""
-        self.__cedula = int
+        self.__cedula = 0
         self.__genero = ""
         self.__listaimplantes = []
-        
+
+#getters clase Paciente     
     def get_Nombre(self):
         return self.__nombre
     def get_Cedula(self):
@@ -143,7 +164,8 @@ class Paciente:
         return self.__genero
     def get_listaImplantesPac(self):
         return self.__listaimplantes
-    
+
+#setters clase Paciente
     def set_Nombre(self,n):
         self.__nombre = n   
     def set_Cedula(self,c):
@@ -155,6 +177,7 @@ class Paciente:
         self.get_listaImplantesPac()[id].get_listaImplantesPac.append(ob)
         return print("Implante ingresado")
 
+#creación clase Sistema
 class Sistema:
     def __init__(self):
         self.__pacientes = {}
@@ -166,6 +189,7 @@ class Sistema:
             "Marcapasos" : {}
         }
 
+#getters clase Sistema
     def get_implantes(self):
         return self.__implantes
     def get_pacientes(self):
@@ -195,6 +219,7 @@ class Sistema:
         else:
             return False
             
+#setters clase Sistema
     def agregarPac(self, id_, ob):
         a = self.verificarExiste()
         if a:
@@ -290,3 +315,13 @@ class Sistema:
             return print("Cambios modificados con éxito")     
 
     def agregarImaPa():
+        dddd
+
+
+def main():
+    servicio_implantes = Sistema()
+    while True:
+        menu = int(input("Bienvenido al sistema, ingrese una opción:\n 1- Agregar Implante \n2-Eliminar implante \n3-Editar información de implante \n4-Visualizar inventario"))
+
+main()
+
