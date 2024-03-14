@@ -514,29 +514,24 @@ def main():
                         ob.set_mantenimiento(man)
                         servicio_implantes.agregarImp(id_, tipo, ob)
                     elif tipo == 5:
-                        ob = StentCoronario()
-                        mat = input("Ingrese el tipo de material")
+                        ob = Marcapasos()
                         while True:
                             try:
-                                l = float(input("Ingrese la longitud: "))
+                                ne = int(input("Ingrese el número de electrodos: "))
                                 break
                             except ValueError:
                                 print("Ingrese un valor adecuado")
                                 continue
-                        while True:
-                            try:
-                                d = float(input("Ingrese el diámetro: "))
-                                break
-                            except ValueError:
-                                print("Ingrese un valor adecuado")
-                                continue
+                        
+                        fc= input("Ingrese forma de conexión: ")
+                        fe= input("Ingrese forma de estimulación: ")
                         med = input("Médico responsable: ")
                         frev = input("Fecha de revisión: ")
                         man = input("Fecha de revisión: ")
                         est = input("Ingrese el estado del implante: ")
-                        ob.set_material(mat)
-                        ob.set_longitud(l)
-                        ob.set_diametro(d)
+                        ob.set_formConexion(fc)
+                        ob.set_fEstimulacion(fe)
+                        ob.set_nElectrodos(ne)
                         ob.set_medResponsable(med)
                         ob.set_fechaRevision(frev)
                         ob.set_mantenimiento(man)
@@ -733,6 +728,23 @@ def main():
                     man = input("Fecha de revisión: ")
                     est = input("Ingrese el estado del implante: ")
                     servicio_implantes.editarInfoStent(id_Implante, mat, l, d, med, est, frev, man, tipoimp=4)
+
+                elif tipo==5:
+                    while True:
+                        try:
+                            ne = int(input("Ingrese el número de electrodos: "))
+                            break
+                        except ValueError:
+                            print("Ingrese un valor adecuado")
+                            continue
+                        
+                    fc= input("Ingrese forma de conexión: ")
+                    fe= input("Ingrese forma de estimulación: ")
+                    med = input("Médico responsable: ")
+                    frev = input("Fecha de revisión: ")
+                    man = input("Fecha de revisión: ")
+                    est = input("Ingrese el estado del implante: ")
+                    servicio_implantes.editarInfoMarcapasos( id_Implante, ne, fc, fe, med, est, frev, man, tipoimp=5)
 
                 
                 
