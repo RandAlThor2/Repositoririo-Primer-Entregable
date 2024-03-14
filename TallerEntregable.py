@@ -639,31 +639,41 @@ def main():
                     pac = servicio_implantes.get_pacientes()[id_pac]
                     ob = servicio_implantes.get_implantes()["ImplanteRodilla"][id_im]
                     pac.get_dicpacimplantes()[id_im] = ob
-                    print ("Implante asignado")
+                    print ("Implante asignado. Se ha retirado del inventario.")
+                    tipo="ImplanteRodilla"
+                    servicio_implantes.eliminarImp(id_,tipo)
                     continue
                 elif tipo == 2:
                     pac = servicio_implantes.get_pacientes()[id_pac]
                     ob = servicio_implantes.get_implantes()["ImplanteCadera"][id_im]
                     pac.get_dicpacimplantes()[id_im] = ob
-                    print ("Implante asignado")
+                    print ("Implante asignado. Se ha retirado del inventario.")
+                    tipo="ImplanteCadera"
+                    servicio_implantes.eliminarImp(id_,tipo)
                     continue
                 elif tipo == 3:
                     pac = servicio_implantes.get_pacientes()[id_pac]
                     ob = servicio_implantes.get_implantes()["ImplanteDental"][id_im]
                     pac.get_dicpacimplantes()[id_im] = ob
-                    print ("Implante asignado")
+                    print ("Implante asignado. Se ha retirado del inventario.")
+                    tipo="ImplanteDental"
+                    servicio_implantes.eliminarImp(id_,tipo)
                     continue
                 elif tipo == 4:
                     pac = servicio_implantes.get_pacientes()[id_pac]
                     ob = servicio_implantes.get_implantes()["StentCoronario"][id_im]
                     pac.get_dicpacimplantes()[id_im] = ob
-                    print ("Implante asignado")
+                    print ("Implante asignado. Se ha retirado del inventario.")
+                    tipo="StentCoronario"
+                    servicio_implantes.eliminarImp(id_,tipo)
                     continue
                 elif tipo == 5:
                     pac = servicio_implantes.get_pacientes()[id_pac]
                     ob = servicio_implantes.get_implantes()["Marcapasos"][id_im]
                     pac.get_dicpacimplantes()[id_im] = ob
-                    print ("Implante asignado")
+                    print ("Implante asignado. Se ha retirado del inventario.")
+                    tipo="Marcapasos"
+                    servicio_implantes.eliminarImp(id_,tipo)
                     continue
 
         elif menu==5:
@@ -805,3 +815,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
