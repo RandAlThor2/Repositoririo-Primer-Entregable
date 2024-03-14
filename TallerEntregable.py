@@ -13,7 +13,7 @@ class Implante:
         return self.__estado
     def get_fechaRevision(self):
         return self.__fechaRevision
-    def gset_mantenimiento(self):
+    def get_mantenimiento(self):
         return self.__mantenimiento
     
 #Setters de la clase implante
@@ -27,12 +27,12 @@ class Implante:
         self.__mantenimiento = man
 
 #Creación clase ImplanteRodilla
-class ImplanteRodilla:
+class ImplanteRodilla(Implante):
     def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
         super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
         self.__material = ""
         self.__tipoFijacion = ""
-        self.__tamaño = float(0)
+        self.__tamaño = float
 
 #getters clase ImplanteRodilla
     def get_material(self):
@@ -51,7 +51,7 @@ class ImplanteRodilla:
         self.__tamaño = tam
 
 #Creación clase ImplanteCadera
-class ImplanteCadera:
+class ImplanteCadera(Implante):
     def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
         super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
         self.__material = ""
@@ -75,7 +75,7 @@ class ImplanteCadera:
         self.__tamaño = tam
 
 #creación clase ImplanteDental
-class ImplanteDental:
+class ImplanteDental(Implante):
     def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
         super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
         self.__material = ""
@@ -99,7 +99,7 @@ class ImplanteDental:
         self.__sistFijacion = sf
 
 #Creación clase StentCoronario
-class StentCoronario:
+class StentCoronario(Implante):
     def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
         super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
         self.__material = ""
@@ -123,7 +123,7 @@ class StentCoronario:
         self.__diametro = d
 
 #creación clase Marcapasos
-class Marcapasos:
+class Marcapasos(Implante):
     def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
         super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
         self.__nElectrodos = int
