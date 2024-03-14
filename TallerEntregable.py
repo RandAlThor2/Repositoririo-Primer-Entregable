@@ -334,7 +334,7 @@ class Sistema:
     
         dic_cad = self.get_implantes()["ImplanteCadera"]
         if not dic_cad:
-            print("No hay información disponible para los implantes de rodilla.")
+            print("No hay información disponible para los implantes de cadera.")
         else:
             print("\nImplantes de Cadera:")
             for implante_id, implante_info in dic_cad.items():
@@ -347,8 +347,8 @@ class Sistema:
                 print(f"Mantenimiento: {implante_info.get_mantenimiento()}")
         
         dic_den = self.get_implantes()["ImplanteDental"]
-        if not dic_dent:
-            print("No hay información disponible para los implantes de rodilla.")
+        if not dic_den:
+            print("No hay información disponible para los implantes dentales.")
         else:
             print("\nImplantes de Dentales:")
             for implante_id, implante_info in dic_den.items():
@@ -363,7 +363,7 @@ class Sistema:
         
         dic_st = self.get_implantes()["StentCoronario"]
         if not dic_st:
-            print("No hay información disponible para los implantes de rodilla.")
+            print("No hay información disponible para los Stents Coronarios.")
         else:
             print("\nStent Coronario:")
             for implante_id, implante_info in dic_st.items():
@@ -378,7 +378,7 @@ class Sistema:
  
         dic_marc = self.get_implantes()["Marcapasos"]
         if not dic_st:
-            print("No hay información disponible para los implantes de rodilla.")
+            print("No hay información disponible para los marcapasos.")
         else:
             print("\nMarcapasos:")
             for implante_id, implante_info in dic_marc.items():
@@ -707,7 +707,7 @@ def main():
                 except ValueError:
                     print("Ingrese un valor numérico")
                     continue
-            if not servicio_implantes.verificarExisteImp(id_Implante):
+            if not servicio_implantes.verificarExisteImp(tipo, id_Implante):
                 print("Este implante no se encuentra en el sistema")
             else:
                 if tipo==1:
@@ -722,7 +722,7 @@ def main():
                             continue
                     med = input("Médico responsable: ")
                     frev = input("Fecha de revisión: ")
-                    man = input("Mantenimiento: ")
+                    man = input("Fecha de mantenimiento: ")
                     est = input("Ingrese el estado del implante: ")
                     servicio_implantes.editarInfoImplanRo(id_Implante,mat,tf,tam, med, est, frev, man, tipoimp=1)
                 elif tipo==2:
@@ -746,7 +746,7 @@ def main():
                     sf = input("Ingrese el sistema de fijación: ")
                     med = input("Médico responsable: ")
                     frev = input("Fecha de revisión: ")
-                    man = input("Fecha de revisión: ")
+                    man = input("Fecha de mantenimiento: ")
                     est = input("Ingrese el estado del implante: ")
                     servicio_implantes.editarInfoImplanDe(id_Implante, mat, f, sf, med, est, frev, man, tipoimp=3)
                 elif tipo==4:
@@ -767,7 +767,7 @@ def main():
                             continue
                     med = input("Médico responsable: ")
                     frev = input("Fecha de revisión: ")
-                    man = input("Fecha de revisión: ")
+                    man = input("Fecha de mantenimiento: ")
                     est = input("Ingrese el estado del implante: ")
                     servicio_implantes.editarInfoStent(id_Implante, mat, l, d, med, est, frev, man, tipoimp=4)
                 elif tipo==5:
@@ -782,9 +782,9 @@ def main():
                     fe= input("Ingrese forma de estimulación: ")
                     med = input("Médico responsable: ")
                     frev = input("Fecha de revisión: ")
-                    man = input("Fecha de revisión: ")
+                    man = input("Fecha de mantenimiento: ")
                     est = input("Ingrese el estado del implante: ")
-                    servicio_implantes.editarInfoMarcapasos( id_Implante, ne, fc, fe, med, est, frev, man, tipoimp=5)
+                    servicio_implantes.editarInfoMarcapasos(id_Implante, ne, fc, fe, med, est, frev, man, tipoimp=5)
         elif menu == 6:
             print(servicio_implantes.verInventarioTotal())
         elif menu ==  7: 
