@@ -471,20 +471,14 @@ def main():
                     elif tipo == 3:
                         ob = ImplanteDental()
                         mat = input("Ingrese el tipo de material: ")
-                        while True:
-                            try:
-                                tam = float(input("Ingrese el tamaño: "))
-                                break
-                            except ValueError:
-                                print("Ingrese un valor adecuado")
-                                continue
+                        f = input("Ingrese la forma del implante: ")
                         sf = input("Ingrese el sistema de fijación: ")
                         med = input("Médico responsable: ")
                         frev = input("Fecha de revisión: ")
                         man = input("Fecha de revisión: ")
                         est = input("Ingrese el estado del implante: ")
                         ob.set_material(mat)
-                        ob.set_tamaño(tam)
+                        ob.set_forma(f)
                         ob.set_sistFijacion(sf)
                         ob.set_medResponsable(med)
                         ob.set_fechaRevision(frev)
@@ -690,7 +684,36 @@ def main():
                     frev = input("Fecha de revisión: ")
                     man = input("Mantenimiento: ")
                     est = input("Ingrese el estado del implante: ")
-                servicio_implantes.editarInfoImplanRo(id_Implante,mat,tf,tam, med, est, frev, man, tipoimp=1)
+                    servicio_implantes.editarInfoImplanRo(id_Implante,mat,tf,tam, med, est, frev, man, tipoimp=1)
+
+                elif tipo==2:
+                    mat = input("Ingrese el tipo de material: ")
+                    tf = input("Ingrese el tipo de fijación: ")
+                    while True:
+                        try:
+                            tam = float(input("Ingrese el tamaño: "))
+                            break
+                        except ValueError:
+                            print("Ingrese un valor adecuado")
+                            continue
+                    med = input("Médico responsable: ")
+                    frev = input("Fecha de revisión: ")
+                    man = input("Mantenimiento: ")
+                    est = input("Ingrese el estado del implante: ")
+                    servicio_implantes.editarInfoImplanCa(id_Implante,mat,tf,tam, med, est, frev, man, tipoimp=2)
+
+                elif tipo==3:
+                    mat = input("Ingrese el tipo de material: ")
+                    f = input("Ingrese la forma del implante: ")
+                    sf = input("Ingrese el sistema de fijación: ")
+                    med = input("Médico responsable: ")
+                    frev = input("Fecha de revisión: ")
+                    man = input("Fecha de revisión: ")
+                    est = input("Ingrese el estado del implante: ")
+                    servicio_implantes.editarInfoImplanDe(id_, mat, f, sf, med, est, frev, man, tipoimp=3)
+                
+
+
                 
 
 main()
