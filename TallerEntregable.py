@@ -376,7 +376,7 @@ class Sistema:
                         print(f"{estado}\n")
  
         dic_marc = self.get_implantes()["Marcapasos"]
-        if not dic_st:
+        if not dic_marc:
             print("No hay información disponible para los marcapasos.")
         else:
             print("\nMarcapasos:")
