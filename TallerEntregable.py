@@ -436,12 +436,14 @@ def main():
                         med = input("Médico responsable: ")
                         frev = input("Fecha de revisión: ")
                         man = input("Mantenimiento: ")
+                        est= input("Ingrese el estado del implante: ")
                         ob.set_material(mat)
                         ob.set_tipoFijacion(tf)
                         ob.set_tamaño(tam)
                         ob.set_medResponsable(med)
                         ob.set_fechaRevision(frev)
                         ob.set_mantenimiento(man)
+                        ob.set_estado(est)
                         servicio_implantes.agregarImp(id_, tipo, ob)
                     elif tipo == 2:
                         ob = ImplanteCadera()
@@ -457,12 +459,14 @@ def main():
                         med = input("Médico responsable: ")
                         frev = input("Fecha de revisión: ")
                         man = input("Fecha de revisión: ")
+                        est = input("Ingrese el estado del implante: ")
                         ob.set_material(mat)
                         ob.set_tipoFijacion(tf)
                         ob.set_tamaño(tam)
                         ob.set_medResponsable(med)
                         ob.set_fechaRevision(frev)
                         ob.set_mantenimiento(man)
+                        ob.set_estado(est)
                         servicio_implantes.agregarImp(id_, tipo, ob)
                     elif tipo == 3:
                         ob = ImplanteDental()
@@ -478,12 +482,14 @@ def main():
                         med = input("Médico responsable: ")
                         frev = input("Fecha de revisión: ")
                         man = input("Fecha de revisión: ")
+                        est = input("Ingrese el estado del implante: ")
                         ob.set_material(mat)
                         ob.set_tamaño(tam)
                         ob.set_sistFijacion(sf)
                         ob.set_medResponsable(med)
                         ob.set_fechaRevision(frev)
                         ob.set_mantenimiento(man)
+                        ob.set_estado(est)
                         servicio_implantes.agregarImp(id_, tipo, ob)
                     elif tipo == 4:
                         ob = StentCoronario()
@@ -505,6 +511,7 @@ def main():
                         med = input("Médico responsable: ")
                         frev = input("Fecha de revisión: ")
                         man = input("Fecha de revisión: ")
+                        est = input("Ingrese el estado del implante: ")
                         ob.set_material(mat)
                         ob.set_longitud(l)
                         ob.set_diametro(d)
@@ -532,54 +539,51 @@ def main():
                         med = input("Médico responsable: ")
                         frev = input("Fecha de revisión: ")
                         man = input("Fecha de revisión: ")
+                        est = input("Ingrese el estado del implante: ")
                         ob.set_material(mat)
                         ob.set_longitud(l)
                         ob.set_diametro(d)
                         ob.set_medResponsable(med)
                         ob.set_fechaRevision(frev)
                         ob.set_mantenimiento(man)
+                        ob.set_estado(est)
                         servicio_implantes.agregarImp(id_, tipo, ob)    
                     else:
                         break
-        elif menu == 2:
-            while True:
-                try:
-                    id_= int(input("Ingrese la ID del implante"))
-                    break
-                except ValueError:
-                    print("Ingrese un valor adecuado")
-                    continue
-            while True:
-                try:
-                    tipo = int(input('''Ingrese tipo de implante
-                        \n1-Implante de rodilla 
-                        \n2-Implante de cadera
-                        \n3-Implante dental 
-                        \n4-Stent coronario 
-                        \n5-Marcapasos
-                        \n6-Salir 
-                        '''))
-                    break
-                except ValueError:
-                    print("Ingrese un valor adecuado")
-                    continue
-            if tipo == 1:
+        elif menu==2:
+            id_=int(input("Ingrese la ID del implante"))
+            tipo=input('''Ingrese tipo de implante
+                    \n1-Implante de rodilla 
+                    \n2-Implante de cadera
+                    \n3-Implante dental 
+                    \n4-Stent coronario 
+                    \n5-Marcapasos
+                    \n6-Salir 
+                        ''')
+
+            if tipo==1:
                 tipo="ImplanteRodilla"
                 servicio_implantes.eliminarImp(id_,tipo)
+
             elif tipo==2:
                 tipo="ImplanteCadera"
                 servicio_implantes.eliminarImp(id_,tipo)
+
             elif tipo==3:
                 tipo="ImplanteDental"
                 servicio_implantes.eliminarImp(id_,tipo)
+            
             elif tipo==4:
                 tipo="StentCoronario"
                 servicio_implantes.eliminarImp(id_,tipo)
+            
             elif tipo==5:
                 tipo="Marcapasos"
                 servicio_implantes.eliminarImp(id_,tipo)
+
             else:
                 break
+        
         elif menu==3:
             while True:
                 pac=Paciente()    
@@ -591,6 +595,7 @@ def main():
                     pac.set_Nombre=input("Ingrese el nombre del paciente: ")
                     pac.set_Cedula=id
                     pac.set_Genero=input("Ingrese el genero del paciente: ")
+                    servicio_implantes.agregarPac(id,pac)
                     servicio_implantes.agregarPac(id,pac)
         elif menu == 4:
             while True:
@@ -644,5 +649,48 @@ def main():
                 else:
                     print("Seleccione una opción del menú")
 
+        elif menu==5:
+            while True:
+                try:
+                    tipo = int(input('''Ingrese el tipo de implante: 
+                                \n1-Implante de rodilla
+                                \n2-Implante de cadera
+                                \n3-Implante dental
+                                \n4-Stent Coronario
+                                \n5-Marcapasos
+                                \nOtro-Volver
+                                >> '''))
+                    break
+                except ValueError:
+                    print("Ingrese un valor numérico")
+                    continue
+            while True:
+                try:
+                    id_Implante = int(input('Ingrese la ID del Implante que desea editar: '))
+                    break
+                except ValueError:
+                    print("Ingrese un valor numérico")
+                    continue
+
+            if not servicio_implantes.verificarExisteImp(id_Implante):
+                print("Este implante no se encuentra en el sistema")
             
+            else:
+                if tipo==1:
+                    mat = input("Ingrese el tipo de material: ")
+                    tf = input("Ingrese el tipo de fijación: ")
+                    while True:
+                        try:
+                            tam = float(input("Ingrese el tamaño: "))
+                            break
+                        except ValueError:
+                            print("Ingrese un valor adecuado")
+                            continue
+                    med = input("Médico responsable: ")
+                    frev = input("Fecha de revisión: ")
+                    man = input("Mantenimiento: ")
+                    est = input("Ingrese el estado del implante: ")
+                servicio_implantes.editarInfoImplanRo(id_Implante,mat,tf,tam, med, est, frev, man, tipoimp=1)
+                
+
 main()
