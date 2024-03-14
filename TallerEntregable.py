@@ -28,8 +28,8 @@ class Implante:
 
 #Creación clase ImplanteRodilla
 class ImplanteRodilla(Implante):
-    def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
-        super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
+    def __init__(self):
+        super().__init__()
         self.__material = ""
         self.__tipoFijacion = ""
         self.__tamaño = float
@@ -52,8 +52,8 @@ class ImplanteRodilla(Implante):
 
 #Creación clase ImplanteCadera
 class ImplanteCadera(Implante):
-    def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
-        super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
+    def __init__(self):
+        super().__init__()
         self.__material = ""
         self.__tipoFijacion = ""
         self.__tamaño = float
@@ -76,8 +76,8 @@ class ImplanteCadera(Implante):
 
 #creación clase ImplanteDental
 class ImplanteDental(Implante):
-    def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
-        super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
+    def __init__(self):
+        super().__init__()
         self.__material = ""
         self.__forma = ""
         self.__sistFijacion = ""
@@ -100,8 +100,8 @@ class ImplanteDental(Implante):
 
 #Creación clase StentCoronario
 class StentCoronario(Implante):
-    def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
-        super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
+    def __init__(self):
+        super().__init__()
         self.__material = ""
         self.__longitud = float
         self.__diametro = float
@@ -124,8 +124,8 @@ class StentCoronario(Implante):
 
 #creación clase Marcapasos
 class Marcapasos(Implante):
-    def __init__(self, medResponsable, estado, fechaRevision, mantenimiento):
-        super().__init__(medResponsable, estado, fechaRevision, mantenimiento)
+    def __init__(self):
+        super().__init__()
         self.__nElectrodos = int
         self.__formConexion = ""
         self.__fEstimulacion = ""
@@ -219,7 +219,7 @@ class Sistema:
             
 #setters clase Sistema
     def agregarPac(self, id_, ob):
-        a = self.verificarExistePac()
+        a = self.verificarExistePac(id_)
         if not a:
             self.get_pacientes()[id_] = ob
             return False
@@ -227,19 +227,19 @@ class Sistema:
             return True    
     def agregarImp(self, id_, tipoimp, ob):
         if tipoimp == 1:
-            self.get_implantes["ImplanteRodilla"][id_] = ob
+            self.get_implantes()["ImplanteRodilla"][id_] = ob
             return print("Implante de Rodilla ingresado")
         elif tipoimp == 2:
-            self.get_implantes["ImplanteCadera"][id_] = ob
+            self.get_implantes()["ImplanteCadera"][id_] = ob
             return print("Implante de Cadera ingresado")
         elif tipoimp == 3:
-            self.get_implantes["ImplanteDental"][id_] = ob
+            self.get_implantes()["ImplanteDental"][id_] = ob
             return print("Implante Dental ingresado")
         elif tipoimp == 4:
-            self.get_implantes["StentCoronario"][id_] = ob
+            self.get_implantes()["StentCoronario"][id_] = ob
             return print("StentCoronario ingresado")
         elif tipoimp == 5:
-            self.get_implantes["Marcapasos"][id_] = ob
+            self.get_implantes()["Marcapasos"][id_] = ob
             return print("Marcapasos ingresado")
         
     def editarInfoImplanRo(self, id_, mat, tf, tam, med, est, frev, man, tipoimp=1):
@@ -460,6 +460,7 @@ def main():
                         ob.set_mantenimiento(man)
                         ob.set_estado(est)
                         servicio_implantes.agregarImp(id_, tipo, ob)
+                        break
                     elif tipo == 2:
                         ob = ImplanteCadera()
                         mat = input("Ingrese el tipo de material: ")
@@ -473,7 +474,7 @@ def main():
                                 continue
                         med = input("Médico responsable: ")
                         frev = input("Fecha de revisión: ")
-                        man = input("Fecha de revisión: ")
+                        man = input("Fecha de mantenimiento: ")
                         est = input("Ingrese el estado del implante: ")
                         ob.set_material(mat)
                         ob.set_tipoFijacion(tf)
@@ -483,6 +484,7 @@ def main():
                         ob.set_mantenimiento(man)
                         ob.set_estado(est)
                         servicio_implantes.agregarImp(id_, tipo, ob)
+                        break
                     elif tipo == 3:
                         ob = ImplanteDental()
                         mat = input("Ingrese el tipo de material: ")
@@ -490,7 +492,7 @@ def main():
                         sf = input("Ingrese el sistema de fijación: ")
                         med = input("Médico responsable: ")
                         frev = input("Fecha de revisión: ")
-                        man = input("Fecha de revisión: ")
+                        man = input("Fecha de mantenimiento: ")
                         est = input("Ingrese el estado del implante: ")
                         ob.set_material(mat)
                         ob.set_forma(f)
@@ -500,9 +502,10 @@ def main():
                         ob.set_mantenimiento(man)
                         ob.set_estado(est)
                         servicio_implantes.agregarImp(id_, tipo, ob)
+                        break
                     elif tipo == 4:
                         ob = StentCoronario()
-                        mat = input("Ingrese el tipo de material")
+                        mat = input("Ingrese el tipo de material: ")
                         while True:
                             try:
                                 l = float(input("Ingrese la longitud: "))
@@ -519,7 +522,7 @@ def main():
                                 continue
                         med = input("Médico responsable: ")
                         frev = input("Fecha de revisión: ")
-                        man = input("Fecha de revisión: ")
+                        man = input("Fecha de mantenimiento: ")
                         est = input("Ingrese el estado del implante: ")
                         ob.set_material(mat)
                         ob.set_longitud(l)
@@ -528,6 +531,7 @@ def main():
                         ob.set_fechaRevision(frev)
                         ob.set_mantenimiento(man)
                         servicio_implantes.agregarImp(id_, tipo, ob)
+                        break
                     elif tipo == 5:
                         ob = Marcapasos()
                         while True:
@@ -542,7 +546,7 @@ def main():
                         fe= input("Ingrese forma de estimulación: ")
                         med = input("Médico responsable: ")
                         frev = input("Fecha de revisión: ")
-                        man = input("Fecha de revisión: ")
+                        man = input("Fecha de mantenimiento: ")
                         est = input("Ingrese el estado del implante: ")
                         ob.set_formConexion(fc)
                         ob.set_fEstimulacion(fe)
@@ -552,13 +556,14 @@ def main():
                         ob.set_mantenimiento(man)
                         ob.set_estado(est)
                         servicio_implantes.agregarImp(id_, tipo, ob)    
+                        break
                     else:
                         break
         
         elif menu == 2:
             while True:
                 try:
-                    id_=int(input("Ingrese la ID del implante"))
+                    id_=int(input("Ingrese la ID del implante: "))
                     break
                 except ValueError:
                     print("Ingrese un valor adecuado")
@@ -614,6 +619,7 @@ def main():
                     pac.set_Genero=input("Ingrese el genero del paciente: ")
                     servicio_implantes.agregarPac(id,pac)
                     servicio_implantes.agregarPac(id,pac)
+                    print("Paciente ingresado")
                     break
         
         elif menu == 4:
@@ -644,35 +650,40 @@ def main():
                 except ValueError:
                     print("Ingrese un valor del menú")
                     continue
-            if not servicio_implantes.verificarExistePac(id):
+            if not servicio_implantes.verificarExistePac(tipo, id_pac):
                 print("El paciente no se encuentra registrado")
-                break
+                continue
             else:
                 if tipo == 1:
-                    pac = servicio_implantes.get_implantes()[id_pac]
-                    ob = servicio_implantes.get_pacientes()[tipo][id_im]
+                    pac = servicio_implantes.get_pacientes()[id_pac]
+                    ob = servicio_implantes.get_implantes()["ImplanteRodilla"][id_im]
                     pac.get_dicpacimplantes()[id_im] = ob
-                    break
+                    print ("Implante asignado")
+                    continue
                 elif tipo == 2:
-                    pac = servicio_implantes.get_implantes()[id_pac]
-                    ob = servicio_implantes.get_pacientes()[tipo][id_im]
+                    pac = servicio_implantes.get_pacientes()[id_pac]
+                    ob = servicio_implantes.get_implantes()["ImplanteCadera"][id_im]
                     pac.get_dicpacimplantes()[id_im] = ob
-                    break
+                    print ("Implante asignado")
+                    continue
                 elif tipo == 3:
-                    pac = servicio_implantes.get_implantes()[id_pac]
-                    ob = servicio_implantes.get_pacientes()[tipo][id_im]
+                    pac = servicio_implantes.get_pacientes()[id_pac]
+                    ob = servicio_implantes.get_implantes()["ImplanteDental"][id_im]
                     pac.get_dicpacimplantes()[id_im] = ob
-                    break
+                    print ("Implante asignado")
+                    continue
                 elif tipo == 4:
-                    pac = servicio_implantes.get_implantes()[id_pac]
-                    ob = servicio_implantes.get_pacientes()[tipo][id_im]
+                    pac = servicio_implantes.get_pacientes()[id_pac]
+                    ob = servicio_implantes.get_implantes()["StentCoronario"][id_im]
                     pac.get_dicpacimplantes()[id_im] = ob
-                    break
+                    print ("Implante asignado")
+                    continue
                 elif tipo == 5:
-                    pac = servicio_implantes.get_implantes()[id_pac]
-                    ob = servicio_implantes.get_pacientes()[tipo][id_im]
+                    pac = servicio_implantes.get_pacientes()[id_pac]
+                    ob = servicio_implantes.get_implantes()["Marcapasos"][id_im]
                     pac.get_dicpacimplantes()[id_im] = ob
-                    break
+                    print ("Implante asignado")
+                    continue
 
         elif menu==5:
             while True:
