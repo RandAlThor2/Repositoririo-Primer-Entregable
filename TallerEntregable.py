@@ -710,7 +710,31 @@ def main():
                     frev = input("Fecha de revisión: ")
                     man = input("Fecha de revisión: ")
                     est = input("Ingrese el estado del implante: ")
-                    servicio_implantes.editarInfoImplanDe(id_, mat, f, sf, med, est, frev, man, tipoimp=3)
+                    servicio_implantes.editarInfoImplanDe(id_Implante, mat, f, sf, med, est, frev, man, tipoimp=3)
+
+                elif tipo==4:
+                    mat = input("Ingrese el tipo de material")
+                    while True:
+                        try:
+                            l = float(input("Ingrese la longitud: "))
+                            break
+                        except ValueError:
+                            print("Ingrese un valor adecuado")
+                            continue
+                    while True:
+                        try:
+                            d = float(input("Ingrese el diámetro: "))
+                            break
+                        except ValueError:
+                            print("Ingrese un valor adecuado")
+                            continue
+                    med = input("Médico responsable: ")
+                    frev = input("Fecha de revisión: ")
+                    man = input("Fecha de revisión: ")
+                    est = input("Ingrese el estado del implante: ")
+                    servicio_implantes.editarInfoStent(id_Implante, mat, l, d, med, est, frev, man, tipoimp=4)
+
+                
                 
 
 
